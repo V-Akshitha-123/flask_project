@@ -1,11 +1,7 @@
-from fastapi import FastAPI
+from flask import Flask
 
-app = FastAPI()
+app = Flask(__name__)
 
-@app.get("/")
-def read_root():
-    return {"message": "Hello from Render!"}
-
-@app.get("/hello/{name}")
-def read_item(name: str):
-    return {"message": f"Hello, {name}!"}
+@app.route("/")
+def home():
+    return {"message": "Hello from Flask on Render!"}
